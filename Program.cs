@@ -1,7 +1,13 @@
+using DotNetCore_AppConfigurationDemo.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Binding and adding Position section config data from app settings.json file to dependency injection service container.
+//In the following code, PositionOptions is added to the service container with Configure and bound to configuration:
+builder.Services.Configure<PositionOptions>(builder.Configuration.GetSection(PositionOptions.Position));
 
 var app = builder.Build();
 
