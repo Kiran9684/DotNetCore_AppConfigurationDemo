@@ -99,5 +99,18 @@ namespace DotNetCore_AppConfigurationDemo.Controllers
 
             return s;
         }
+
+        public string Index6()
+        {
+            //This method is to read config data into dictionary.
+            var myDictionary = _configuration.GetSection("DbConfigData:connectionstrings").Get<Dictionary<string,string>>();
+
+            return "test";
+
+            /*
+             * Refer this very use full link
+             * https://stackoverflow.com/questions/42846296/how-to-load-appsetting-json-section-into-dictionary-in-net-core
+             */
+        }
     }
 }
