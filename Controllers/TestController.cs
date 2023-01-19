@@ -57,6 +57,28 @@ namespace DotNetCore_AppConfigurationDemo.Controllers
             return $"section0Data : {section0Data["key0"]} and {section0Data["key1"]} || section2_ssubsection0_data: {section2_ssubsection0_data["key0"]} and {section2_ssubsection0_data["key1"]}";
         }
 
+        public string Index4()
+        {
+            //GetChildren and Exists
+            var selection = _configuration.GetSection("section2");
+            if (!selection.Exists())
+            {
+                return "Section does not exist";
+            }
 
+            var childern = _configuration.GetSection("section2").GetChildren();
+            string s = "";
+            foreach(var subsection in childern)
+            {
+                int i = 0;
+                var key1 = subsection.Key + ":key" + i++.ToString();
+                var key2 = subsection.Key + ":key" + i.ToString();
+                s += key1 + " value: " + selection[key1] + "\n";
+                s += key2 + " value: " + selection[key2] + "\n";
+            }
+
+            return s;
+
+        }
     }
 }
