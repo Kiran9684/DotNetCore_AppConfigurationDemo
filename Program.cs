@@ -9,6 +9,9 @@ builder.Services.AddControllersWithViews();
 //In the following code, PositionOptions is added to the service container with Configure and bound to configuration:
 builder.Services.Configure<PositionOptions>(builder.Configuration.GetSection(PositionOptions.Position));
 
+
+//The following code adds MySubsection.json to the configuration providers:
+builder.Configuration.AddJsonFile("D:\\DotNet WorkSpace\\Workspace\\Visual Studio Workspace\\CORE_WebAppConfigurationDemo\\DotNetCore_AppConfigurationDemo\\CustomConfigs\\MySubsection.json", optional: false, reloadOnChange: true);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
