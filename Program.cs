@@ -15,6 +15,12 @@ builder.Configuration.AddJsonFile("D:\\DotNet WorkSpace\\Workspace\\Visual Studi
 
 //Adding MyArray.json to the configuration provider:
 builder.Configuration.AddJsonFile("D:\\DotNet WorkSpace\\Workspace\\Visual Studio Workspace\\CORE_WebAppConfigurationDemo\\DotNetCore_AppConfigurationDemo\\CustomConfigs\\MyArray.json", optional: false, reloadOnChange: true);
+
+//Adding DbConfigData.json to service container
+builder.Configuration.AddJsonFile("D:\\DotNet WorkSpace\\Workspace\\Visual Studio Workspace\\CORE_WebAppConfigurationDemo\\DotNetCore_AppConfigurationDemo\\CustomConfigs\\DbConfigData.json",optional:false,reloadOnChange:true);
+
+builder.Services.Configure<DbConfigData>(builder.Configuration.GetSection("DbConfigData"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
