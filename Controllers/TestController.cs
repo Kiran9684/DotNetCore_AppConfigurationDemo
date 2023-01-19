@@ -47,5 +47,16 @@ namespace DotNetCore_AppConfigurationDemo.Controllers
 
             
         }
+
+        public string Index3() 
+        {
+            //Get section 
+            var section0Data = _configuration.GetSection("section0");
+            var section2_ssubsection0_data = _configuration.GetSection("section2:subsection0");
+
+            return $"section0Data : {section0Data["key0"]} and {section0Data["key1"]} || section2_ssubsection0_data: {section2_ssubsection0_data["key0"]} and {section2_ssubsection0_data["key1"]}";
+        }
+
+
     }
 }
