@@ -9,6 +9,7 @@ namespace DotNetCore_AppConfigurationDemo.Controllers
         
         private readonly IConfiguration _configuration;
         public  PositionOptions? positionOptions2 { get; private set; }
+        public MyArrayExample _array { get; private set; }
         public TestController(IConfiguration configuration)
         {
             _configuration = configuration; //To access the config data from app settings.json
@@ -79,6 +80,24 @@ namespace DotNetCore_AppConfigurationDemo.Controllers
 
             return s;
 
+        }
+
+        public string Index5() 
+        {
+
+            _array = _configuration.GetSection("array").Get<MyArrayExample>(); //just hover over Get<T> method you will get clear idea. 
+            if (_array == null)
+            {
+                throw new ArgumentNullException(nameof(_array));
+            }
+            string s = String.Empty;
+
+            for (int j = 0; j < _array.Entries.Length; j++)
+            {
+                s += $"Index: {j}  Value:  {_array.Entries[j]} \n";
+            }
+
+            return s;
         }
     }
 }
