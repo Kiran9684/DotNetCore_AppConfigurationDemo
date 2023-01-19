@@ -1,0 +1,14 @@
+{
+  "DbConfigData": {
+    "connectionstrings": {
+      "prodDB": "data source=.; database=BulkyBook; integrated security=SSPI",
+      "stagingDB": "data source=.; database=BulkyBook; integrated security=SSPI",
+      "DevDB": "data source=.; database=BulkyBook; integrated security=SSPI"
+    },
+    "storedprocs": {
+      "proc01": "proc01_val",
+      "proc02": "proc02_val",
+      "proc03": "proc03_val"
+    }
+  }
+}
