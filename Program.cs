@@ -12,6 +12,9 @@ builder.Services.Configure<PositionOptions>(builder.Configuration.GetSection(Pos
 
 //The following code adds MySubsection.json to the configuration providers:
 builder.Configuration.AddJsonFile("D:\\DotNet WorkSpace\\Workspace\\Visual Studio Workspace\\CORE_WebAppConfigurationDemo\\DotNetCore_AppConfigurationDemo\\CustomConfigs\\MySubsection.json", optional: false, reloadOnChange: true);
+
+//Adding MyArray.json to the configuration provider:
+builder.Configuration.AddJsonFile("D:\\DotNet WorkSpace\\Workspace\\Visual Studio Workspace\\CORE_WebAppConfigurationDemo\\DotNetCore_AppConfigurationDemo\\CustomConfigs\\MyArray.json", optional: false, reloadOnChange: true);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
